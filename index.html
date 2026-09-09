@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ritesh Raj Mandal | Personal Portfolio</title>
+
+<meta name="description"
+content="Personal portfolio website of Ritesh Raj Mandal, a Class 11 Computer Science student.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#070b14;
+    --bg2:#0b1120;
+    --card:rgba(255,255,255,0.055);
+    --border:rgba(255,255,255,0.10);
+    --text:#f5f7ff;
+    --muted:#9aa5b8;
+    --blue:#5b7cfa;
+    --blue2:#7c5cff;
+    --white:#ffffff;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(91,124,250,.16), transparent 30%),
+        radial-gradient(circle at 10% 30%, rgba(124,92,255,.10), transparent 25%),
+        var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,11,20,.78);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-container{
+    max-width:1150px;
+    margin:auto;
+    padding:18px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:-.5px;
+}
+
+.logo span{
+    color:var(--blue);
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#b7c0d0;
+    font-size:14px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+}
+
+.hero-container{
+    max-width:1150px;
+    width:100%;
+    margin:auto;
+    padding:90px 25px;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:70px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border:1px solid rgba(91,124,250,.3);
+    background:rgba(91,124,250,.10);
+    color:#9db0ff;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.hero h1{
+    margin:22px 0;
+    font-size:clamp(45px,7vw,76px);
+    line-height:1.02;
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    display:block;
+    background:linear-gradient(90deg,#ffffff,#8ca2ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+    color:var(--muted);
+    font-size:18px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    color:white;
+    font-weight:700;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    border-color:rgba(255,255,255,.25);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,var(--blue),var(--blue2));
+    border:none;
+}
+
+/* PROFILE */
+
+.profile-area{
+    display:flex;
+    justify-content:center;
+}
+
+.profile-card{
+    width:300px;
+    height:350px;
+    border:1px solid var(--border);
+    border-radius:28px;
+    background:linear-gradient(
+        145deg,
+        rgba(91,124,250,.14),
+        rgba(255,255,255,.035)
+    );
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.profile-card::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:rgba(91,124,250,.18);
+    filter:blur(60px);
+    border-radius:50%;
+}
+
+.profile-content{
+    text-align:center;
+    z-index:1;
+}
+
+.profile-icon{
+    width:125px;
+    height:125px;
+    margin:auto;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:55px;
+    background:rgba(255,255,255,.07);
+    border:1px solid var(--border);
+}
+
+.profile-content h3{
+    margin-top:20px;
+    font-size:21px;
+}
+
+.profile-content p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* SECTIONS */
+
+section{
+    padding:100px 25px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-heading h2{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.section-heading p{
+    color:var(--muted);
+}
+
+/* ABOUT */
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:32px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+
+.card p{
+    color:var(--muted);
+}
+
+.highlight{
+    color:white;
+    font-weight:700;
+}
+
+/* EDUCATION */
+
+.education-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.education-card{
+    display:flex;
+    gap:20px;
+}
+
+.icon{
+    min-width:52px;
+    height:52px;
+    border-radius:15px;
+    display:grid;
+    place-items:center;
+    background:rgba(91,124,250,.12);
+    border:1px solid rgba(91,124,250,.2);
+    font-size:23px;
+}
+
+.education-card small{
+    color:#91a5ff;
+    font-weight:700;
+}
+
+.education-card h3{
+    margin:4px 0;
+    font-size:21px;
+}
+
+.college-link{
+    display:inline-block;
+    margin-top:12px;
+    color:#91a5ff;
+    font-weight:700;
+}
+
+.college-link:hover{
+    color:white;
+}
+
+/* INTERESTS */
+
+.interest-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.interest{
+    padding:28px 15px;
+    text-align:center;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    transition:.25s;
+}
+
+.interest:hover{
+    transform:translateY(-6px);
+    border-color:rgba(91,124,250,.35);
+}
+
+.emoji{
+    font-size:32px;
+}
+
+.interest h3{
+    font-size:16px;
+    margin-top:12px;
+}
+
+/* GOALS */
+
+.goals{
+    display:grid;
+    gap:14px;
+}
+
+.goal{
+    padding:18px 20px;
+    border-radius:15px;
+    background:var(--card);
+    border:1px solid var(--border);
+    color:#c5ccda;
+}
+
+.goal::before{
+    content:"✓";
+    color:#91a5ff;
+    font-weight:900;
+    margin-right:12px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact-card{
+    max-width:700px;
+    margin:auto;
+}
+
+.email-button{
+    display:inline-block;
+    margin-top:22px;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:35px 20px;
+    border-top:1px solid var(--border);
+    color:#727d91;
+    font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:760px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero-container{
+        grid-template-columns:1fr;
+        text-align:center;
+        gap:45px;
+    }
+
+    .hero p{
+        margin:auto;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .profile-card{
+        width:260px;
+        height:310px;
+    }
+
+    .education-grid{
+        grid-template-columns:1fr;
+    }
+
+    .interest-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    section{
+        padding:75px 18px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+}
+
+@media(max-width:450px){
+
+    .interest-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .section-heading h2{
+        font-size:31px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+            Ritesh Raj Mandal<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#goals">Goals</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-container">
+
+        <div>
+
+            <span class="badge">
+                Class 11 • Computer Science
+            </span>
+
+            <h1>
+                Hello, I'm
+                <span>Ritesh Raj Mandal</span>
+            </h1>
+
+            <p>
+                A student passionate about learning, technology,
+                personal growth and exploring new ideas.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#about" class="btn btn-primary">
+                    About Me
+                </a>
+
+                <a href="#education" class="btn">
+                    My Education
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PHOTO CAN BE ADDED HERE LATER -->
+
+        <div class="profile-area">
+
+            <div class="profile-card">
+
+                <div class="profile-content">
+
+                    <div class="profile-icon">
+                        👤
+                    </div>
+
+                    <h3>Ritesh Raj Mandal</h3>
+
+                    <p>Student • Computer Science</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>About Me</h2>
+
+            <p>Get to know me</p>
+
+        </div>
+
+        <div class="card">
+
+            <p>
+                Hello! I'm
+                <span class="highlight">Ritesh Raj Mandal</span>,
+                a Class 11 Computer Science student.
+                I am curious about technology and enjoy discovering
+                new ideas and learning useful skills.
+            </p>
+
+            <br>
+
+            <p>
+                I believe that education, consistency and a positive
+                mindset are important parts of personal growth.
+                I always try to learn something new and improve
+                myself step by step.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>Education</h2>
+
+            <p>My academic journey</p>
+
+        </div>
+
+
+        <div class="education-grid">
+
+
+            <div class="card education-card">
+
+                <div class="icon">
+                    🎓
+                </div>
+
+                <div>
+
+                    <small>Current Class</small>
+
+                    <h3>Class 11</h3>
+
+                    <p>
+                        Faculty:
+                        <strong>Computer Science</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card education-card">
+
+                <div class="icon">
+                    🏫
+                </div>
+
+                <div>
+
+                    <small>College</small>
+
+                    <h3>Monastic College</h3>
+
+                    <p>
+                        Currently studying higher secondary
+                        education at Monastic College.
+                    </p>
+
+                    <a
+                        href="https://monastic.edu.np/"
+                        target="_blank"
+                        rel="noopener"
+                        class="college-link"
+                    >
+                        Visit College Website ↗
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INTERESTS -->
+
+<section id="interests">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>My Interests</h2>
+
+            <p>Things I enjoy</p>
+
+        </div>
+
+
+        <div class="interest-grid">
+
+            <div class="interest">
+                <div class="emoji">🎧</div>
+                <h3>Listening to Music</h3>
+            </div>
+
+            <div class="interest">
+                <div class="emoji">📚</div>
+                <h3>Reading Books</h3>
+            </div>
+
+            <div class="interest">
+                <div class="emoji">💻</div>
+                <h3>Technology</h3>
+            </div>
+
+            <div class="interest">
+                <div class="emoji">🧠</div>
+                <h3>Learning</h3>
+            </div>
+
+            <div class="interest">
+                <div class="emoji">💡</div>
+                <h3>Exploring Ideas</h3>
+            </div>
+
+            <div class="interest">
+                <div class="emoji">🌱</div>
+                <h3>Personal Growth</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GOALS -->
+
+<section id="goals">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <h2>My Goals</h2>
+
+            <p>Things I want to achieve</p>
+
+        </div>
+
+
+        <div class="goals">
+
+            <div class="goal">
+                Build strong knowledge in Computer Science.
+            </div>
+
+            <div class="goal">
+                Improve my skills through regular learning and practice.
+            </div>
+
+            <div class="goal">
+                Explore modern technology.
+            </div>
+
+            <div class="goal">
+                Develop a disciplined and positive mindset.
+            </div>
+
+            <div class="goal">
+                Prepare myself for future academic opportunities.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="container contact">
+
+        <div class="section-heading">
+
+            <h2>Let's Connect</h2>
+
+            <p>Feel free to get in touch.</p>
+
+        </div>
+
+
+        <div class="card contact-card">
+
+            <p>
+                You can add your email and social links here later.
+            </p>
+
+            <!-- CHANGE EMAIL HERE -->
+
+            <a
+                href="mailto:your-email@example.com"
+                class="btn btn-primary email-button"
+            >
+                Email Me
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Ritesh Raj Mandal
+
+    <br>
+
+    Personal Portfolio
+
+</footer>
+
+</body>
+</html>
